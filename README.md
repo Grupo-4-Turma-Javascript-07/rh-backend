@@ -20,7 +20,7 @@ A entidade `Colaborador` possui os seguintes atributos:
 - `id` (gerado automaticamente)
 - `nome` (string)
 - `cpf` (string)
-- `setor` (string)
+- `cargo` (string)
 - `dataAdmissao` (date)
 
 ---
