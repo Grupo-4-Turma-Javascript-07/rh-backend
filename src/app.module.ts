@@ -1,6 +1,7 @@
 import { ColaboradorModule } from './colaborador/colaborador.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Colaborador } from './colaborador/entities/colabolador.entity';
 
 @Module({
 	imports: [
@@ -9,9 +10,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 			host: 'localhost',
 			port: 3306,
 			username: 'root',
-			password: '2224',
+			password: 'root',
 			database: 'db_rh',
-			entities: [],
+			entities: [Colaborador],
 			synchronize: true,
 		}),
 		ColaboradorModule,

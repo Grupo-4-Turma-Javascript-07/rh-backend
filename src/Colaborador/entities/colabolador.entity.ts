@@ -17,7 +17,7 @@ export class Colaborador {
 
 	@IsNotEmpty()
 	@Column({ length: 255, nullable: false })
-	setor: string;
+	cargo: string;
 
 	@IsDateString()
 	@Column({ type: 'date', nullable: false })
