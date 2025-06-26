@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Colaborador } from './colaborador/entities/colaborador.entity';
+import { Colaborador } from './entities/colabolador.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Colaborador])],
-  providers: [],
-  controllers: [],
-  exports: [],
+	imports: [TypeOrmModule.forFeature([Colaborador])],
+	providers: [],
+	controllers: [],
+	exports: [],
 })
 export class ColaboradorModule {}
