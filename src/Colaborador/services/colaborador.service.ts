@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Colaborador } from './../entities/colabolador.entity';
+import { Colaborador } from '../entities/colaborador.entity';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ILike, Repository } from 'typeorm';
 

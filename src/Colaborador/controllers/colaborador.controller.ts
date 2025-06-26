@@ -11,7 +11,7 @@ import {
 	Put,
 } from '@nestjs/common';
 
-import { Colaborador } from '../entities/colabolador.entity';
+import { Colaborador } from '../entities/colaborador.entity';
 import { ColaboradorService } from '../services/colaborador.service';
 
 @Controller('/colaboradores')

@@ -1,7 +1,7 @@
 import { ColaboradorModule } from './colaborador/colaborador.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Colaborador } from './colaborador/entities/colabolador.entity';
+import { Colaborador } from './colaborador/entities/colaborador.entity';
 
 @Module({
 	imports: [
