@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Colaborador } from '../entities/colaborador.entity';
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ILike, Repository } from 'typeorm';
 
 @Injectable()
@@ -22,28 +22,40 @@ export class ColaboradorService {
 		});
 
 		if (!colaborador) {
-			throw new HttpException('Id não encontrado', HttpStatus.NOT_FOUND);
+			throw new NotFoundException('Id não encontrado');
 		}
 
 		return colaborador;
 	}
 
 	async findAllByCargo(cargo: string): Promise<Colaborador[]> {
-		return await this.colaboradorRepository.find({
+		const cargoColaborador = await this.colaboradorRepository.find({
 			where: {
 				cargo: ILike(`%${cargo}%`),
 			},
 		});
+		if (cargoColaborador.length === 0) {
+			throw new NotFoundException(
+				'nenhum colaborador com esse cargo encontrado!',
+			);
+		}
+		return cargoColaborador;
 	}
 
 	async create(colaborador: Colaborador): Promise<Colaborador> {
 		return await this.colaboradorRepository.save(colaborador);
 	}
 
-	async update(colaborador: Colaborador): Promise<Colaborador> {
-		await this.findById(colaborador.id);
+	async update(colaborador: Colaborador, id: number): Promise<Colaborador> {
+		const colaboradorAntigo = await this.findById(id);
 
-		return await this.colaboradorRepository.save(colaborador);
+		const colaboradorAtualizado = this.colaboradorRepository.create({
+			...colaboradorAntigo,
+			cargo: colaborador.cargo,
+			cpf: colaborador.cpf,
+		});
+
+		return await this.colaboradorRepository.save(colaboradorAtualizado);
 	}
 
 	async delete(id: number): Promise<void> {

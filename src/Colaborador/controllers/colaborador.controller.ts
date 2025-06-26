@@ -42,10 +42,13 @@ export class ColaboradorController {
 		return this.colaboradorService.create(colaborador);
 	}
 
-	@Put()
+	@Put(':id')
 	@HttpCode(HttpStatus.OK)
-	update(@Body() colaborador: Colaborador): Promise<Colaborador> {
-		return this.colaboradorService.update(colaborador);
+	update(
+		@Body() colaborador: Colaborador,
+		@Param('id', ParseIntPipe) id: number,
+	): Promise<Colaborador> {
+		return this.colaboradorService.update(colaborador, id);
 	}
 
 	@Delete('/:id')
