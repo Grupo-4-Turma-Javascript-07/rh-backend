@@ -36,7 +36,7 @@ export class ColaboradorController {
   }
 
   @Post()
-  @HttpCode(HttpStatus.CREATED)
+  @HttpCode(HttpStatus.OK)
   create(@Body() colaborador: Colaborador): Promise<Colaborador> {
     return this.colaboradorService.create(colaborador);
   }
