@@ -42,7 +42,7 @@ A entidade `Colaborador` possui os seguintes atributos:
 ✔ TypeORM criando a tabela com os atributos definidos  
 ✔ CRUD completo implementado  
 ✔ Endpoint adicional de busca por cargo  
-✔ Testes manuais realizados com Postman/Insomnia
+✔ Testes manuais realizados com Insomnia
 
 ---
 
