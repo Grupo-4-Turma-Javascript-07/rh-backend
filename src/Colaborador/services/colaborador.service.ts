@@ -51,6 +51,7 @@ export class ColaboradorService {
 
 		const colaboradorAtualizado = this.colaboradorRepository.create({
 			...colaboradorAntigo,
+			nome: colaborador.nome,
 			cargo: colaborador.cargo,
 			cpf: colaborador.cpf,
 		});
